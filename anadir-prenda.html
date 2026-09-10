@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>Añadir prenda</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+
+<body class="pantalla-anadir">
+<div class="foto-prenda">
+    <div class="ventana-foto">
+        <img id="imagen-previa">
+    </div>
+
+    <label for="foto">AÑADIR FOTO</label>
+    <input type="file" id="foto">
+    
+</div>
+
+
+<div class="campo">
+    <label for="nombre">Nombre de la prenda</label>
+    <input type="text" id="nombre" placeholder="Ej. Camiseta blanca">
+</div>
+<div class="campo">
+    <label for="color">Color</label>
+    <input type="text" id="color" placeholder="Ej. Blanco">
+</div>
+
+<div class="campo">
+    <label for="categoria">Categoría</label>
+    <select id="categoria">
+    <option value="">Selecciona una categoría</option>
+    <option value="camiseta">Camisetas</option>
+    <option value="camisa">Camisas</option>
+    <option value="pantalon">Pantalones</option>
+    <option value="vestido">Vestidos</option>
+    <option value="chaqueta">Chaquetas</option>
+    <option value="zapato">Zapatos</option>
+    </select>
+</div>
+
+<button>AÑADIR PRENDA</button>
+<div id="lista-prendas"></div>
+
+
+<script src="script.js"></script>
+</body>
+</html>
