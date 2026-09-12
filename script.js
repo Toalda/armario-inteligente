@@ -325,6 +325,7 @@ boton.addEventListener("click", function() {
 }
     
     const lector = new FileReader();
+    alert("VOY A LEER LA FOTO");
 
 lector.onload = function() {
 
