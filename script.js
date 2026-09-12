@@ -328,7 +328,7 @@ boton.addEventListener("click", function() {
     alert("VOY A LEER LA FOTO");
 
 lector.onload = function() {
-
+alert("LA FOTO SE HA LEÍDO");
     prendas.push({
     nombre: textoNombre,
     color: textoColor,
