@@ -342,8 +342,28 @@ alert("VOY A GUARDAR LA PRENDA");
     posicionY: posicionY
 });
 
+   prendas.push({
+    nombre: textoNombre,
+    color: textoColor,
+    categoria: textoCategoria,
+    foto: lector.result,
+    zoom: zoomActual,
+    posicionX: posicionX,
+    posicionY: posicionY
+});
+
+    try {
     localStorage.setItem("prendas", JSON.stringify(prendas));
     alert("PRENDA GUARDADA");
+} catch (error) {
+    alert("ERROR AL GUARDAR: " + error.name);
+}
+
+    if (document.body.classList.contains("pantalla-anadir")) {
+    window.location.replace("prendas.html?categoria=" + textoCategoria);
+    return;
+}
+    
     if (document.body.classList.contains("pantalla-anadir")) {
     window.location.replace("prendas.html?categoria=" + textoCategoria);
     return;
