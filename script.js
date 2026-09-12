@@ -279,7 +279,7 @@ contenedorBotones.appendChild(botonEliminar);
     }
 
     localStorage.setItem("prendas", JSON.stringify(prendas));
-       alert("PRENDA GUARDADA");
+    alert("PRENDA GUARDADA");
 
     nuevaPrenda.remove();
 });
