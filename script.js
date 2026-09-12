@@ -279,7 +279,6 @@ contenedorBotones.appendChild(botonEliminar);
     }
 
     localStorage.setItem("prendas", JSON.stringify(prendas));
-    alert("PRENDA GUARDADA");
 
     nuevaPrenda.remove();
 });
@@ -344,8 +343,7 @@ alert("VOY A GUARDAR LA PRENDA");
 });
 
     localStorage.setItem("prendas", JSON.stringify(prendas));
-
-
+    alert("PRENDA GUARDADA");
     if (document.body.classList.contains("pantalla-anadir")) {
     window.location.replace("prendas.html?categoria=" + textoCategoria);
     return;
