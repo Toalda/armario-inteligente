@@ -298,7 +298,7 @@ boton.addEventListener("click", function() {
 
     if (textoCategoria === "") { alert("Selecciona una categoría"); return; }
     
-    boton.disabled = true;
+    //boton.disabled = true;
 
     if (indiceEditando !== null) {
 
