@@ -345,7 +345,6 @@ alert("VOY A GUARDAR LA PRENDA");
 
     try {
     alert("ESPACIO: " + localStorage.length);
-    localStorage.setItem("prueba", "hola");
     localStorage.setItem("prendas", JSON.stringify(prendas));
     alert("PRENDA GUARDADA");
 } catch (error) {
