@@ -290,6 +290,7 @@ if (boton) {
 boton.addEventListener("click", function() {
 
     console.log("HE PULSADO AÑADIR");
+    alert("HE PULSADO AÑADIR");
 
     const textoNombre = nombre.value;
     const textoColor = color.value; 
@@ -333,16 +334,6 @@ alert("LA FOTO SE HA LEÍDO");
 alert("VOY A GUARDAR LA PRENDA");
     
     prendas.push({
-    nombre: textoNombre,
-    color: textoColor,
-    categoria: textoCategoria,
-    foto: lector.result,
-    zoom: zoomActual,
-    posicionX: posicionX,
-    posicionY: posicionY
-});
-
-   prendas.push({
     nombre: textoNombre,
     color: textoColor,
     categoria: textoCategoria,
