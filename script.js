@@ -358,7 +358,8 @@ boton.addEventListener("click", function() {
         imagen.src = URL.createObjectURL(archivo);
     });
 }
-    
+
+    reducirFoto(archivoFoto).then(function(fotoReducida) {
     const lector = new FileReader();
     alert("VOY A LEER LA FOTO");
     
