@@ -408,7 +408,7 @@ alert("VOY A GUARDAR LA PRENDA");
 
 };
 
-lector.readAsDataURL(archivoFoto);
+lector.readAsDataURL(fotoReducida);
 
 });
 
