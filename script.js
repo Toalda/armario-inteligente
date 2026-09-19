@@ -325,6 +325,40 @@ boton.addEventListener("click", function() {
     return;
 }
     
+    function reducirFoto(archivo, maximo = 1200, calidad = 0.8) {
+    return new Promise(function(resolve) {
+        const imagen = new Image();
+
+        imagen.onload = function() {
+            let ancho = imagen.width;
+            let alto = imagen.height;
+
+            if (ancho > maximo || alto > maximo) {
+                if (ancho > alto) {
+                    alto = alto * (maximo / ancho);
+                    ancho = maximo;
+                } else {
+                    ancho = ancho * (maximo / alto);
+                    alto = maximo;
+                }
+            }
+
+            const canvas = document.createElement("canvas");
+            canvas.width = ancho;
+            canvas.height = alto;
+
+            const contexto = canvas.getContext("2d");
+            contexto.drawImage(imagen, 0, 0, ancho, alto);
+
+            canvas.toBlob(function(blob) {
+                resolve(blob);
+            }, "image/jpeg", calidad);
+        };
+
+        imagen.src = URL.createObjectURL(archivo);
+    });
+}
+    
     const lector = new FileReader();
     alert("VOY A LEER LA FOTO");
     
