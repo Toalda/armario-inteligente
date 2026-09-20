@@ -325,7 +325,6 @@ if (boton) {
 boton.addEventListener("click", function() {
 
     console.log("HE PULSADO AÑADIR");
-    alert("HE PULSADO AÑADIR");
 
     const textoNombre = nombre.value;
     const textoColor = color.value; 
@@ -365,12 +364,8 @@ boton.addEventListener("click", function() {
 
     reducirFoto(archivoFoto).then(function(fotoReducida) {
     const lector = new FileReader();    
-    alert("VOY A LEER LA FOTO");
     
     lector.onload = function() {
-
-    alert("LA FOTO SE HA LEÍDO");
-    alert("VOY A GUARDAR LA PRENDA");
 
     prendas.push({
     nombre: textoNombre,
@@ -385,9 +380,9 @@ boton.addEventListener("click", function() {
     try {   
     alert("ESPACIO: " + localStorage.length);
     localStorage.setItem("prendas", JSON.stringify(prendas));  
-    alert("PRENDA GUARDADA");
+    
 } catch (error) {
-    alert("ERROR AL GUARDAR: " + error.name);
+
 }
 
 
