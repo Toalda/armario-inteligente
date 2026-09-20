@@ -128,7 +128,6 @@ body {
     display: grid;
     grid-template-columns: 140px 140px;
     gap: 30px;
-    row-gap: 50px;
     justify-content: center;
     margin-top: 40px;
 }

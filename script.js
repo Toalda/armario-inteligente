@@ -369,7 +369,7 @@ boton.addEventListener("click", function() {
     localStorage.setItem("prendas", JSON.stringify(prendas));  
     
 } catch (error) {
-
+    
 }
 
 
