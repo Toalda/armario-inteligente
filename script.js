@@ -365,7 +365,7 @@ boton.addEventListener("click", function() {
 });
 
     try {   
-    alert("ESPACIO: " + localStorage.length);
+    
     localStorage.setItem("prendas", JSON.stringify(prendas));  
     
 } catch (error) {
