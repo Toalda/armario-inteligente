@@ -407,8 +407,6 @@ if (listaPrendas && !document.body.classList.contains("pantalla-anadir")) {
 
 function mostrarCategoria(nombreCategoria) {
 
-    console.log("Buscando categoría:", nombreCategoria);
-
     listaPrendas.innerHTML = "";
 
     prendas.forEach(function(prenda, indice) {
@@ -448,9 +446,6 @@ if (tituloCategoria && categoriaSeleccionada) {
 if (categoriaSeleccionada) {
     mostrarCategoria(categoriaSeleccionada);
 }
-
-console.log("Categoría seleccionada:", categoriaSeleccionada);
-console.log("Prendas guardadas:", prendas);
 
 if (busqueda) {
 
