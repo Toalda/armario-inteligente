@@ -30,6 +30,40 @@ if (foto) {
 
 }
 
+function reducirFoto(archivo, maximo = 1200, calidad = 0.8) {
+    return new Promise(function(resolve) {
+        const imagen = new Image();
+
+        imagen.onload = function() {
+            let ancho = imagen.width;
+            let alto = imagen.height;
+
+            if (ancho > maximo || alto > maximo) {
+                if (ancho > alto) {
+                    alto = alto * (maximo / ancho);
+                    ancho = maximo;
+                } else {
+                    ancho = ancho * (maximo / alto);
+                    alto = maximo;
+                }
+            }
+
+            const canvas = document.createElement("canvas");
+            canvas.width = ancho;
+            canvas.height = alto;
+
+            const contexto = canvas.getContext("2d");
+            contexto.drawImage(imagen, 0, 0, ancho, alto);
+
+            canvas.toBlob(function(blob) {
+                resolve(blob);
+            }, "image/jpeg", calidad);
+        };
+
+        imagen.src = URL.createObjectURL(archivo);
+    });
+}
+
 let moviendo = false;
 let inicioX;
 let inicioY;
@@ -231,7 +265,7 @@ function crearPrenda(textoNombre, textoColor, archivoFoto, indice, textoCategori
     if (prendaGuardada && prendaGuardada.zoom) {
     imagen.style.transform =
     `translate(${prendaGuardada.posicionX}px, ${prendaGuardada.posicionY}px) scale(${prendaGuardada.zoom})`;
-}
+    }
     console.log("Transform aplicado:", imagen.style.transform);
     zonaFoto.appendChild(imagen);
     nuevaPrenda.appendChild(zonaFoto);
@@ -285,6 +319,7 @@ contenedorBotones.appendChild(botonEliminar);
     
     listaPrendas.appendChild(nuevaPrenda); 
 }
+
 if (boton) {
 
 boton.addEventListener("click", function() {
@@ -299,9 +334,11 @@ boton.addEventListener("click", function() {
 
     if (textoCategoria === "") { alert("Selecciona una categoría"); return; }
     
-    //boton.disabled = true;
+   // boton.disabled = true;
 
-    if (indiceEditando !== null) {
+
+
+ if (indiceEditando !== null) {
 
     prendas[indiceEditando].nombre = textoNombre;
     prendas[indiceEditando].color = textoColor;
@@ -323,51 +360,18 @@ boton.addEventListener("click", function() {
     window.location.replace("prendas.html?categoria=" + textoCategoria);
 
     return;
-}
-    
-    function reducirFoto(archivo, maximo = 1200, calidad = 0.8) {
-    return new Promise(function(resolve) {
-        const imagen = new Image();
+ }
 
-        imagen.onload = function() {
-            let ancho = imagen.width;
-            let alto = imagen.height;
-
-            if (ancho > maximo || alto > maximo) {
-                if (ancho > alto) {
-                    alto = alto * (maximo / ancho);
-                    ancho = maximo;
-                } else {
-                    ancho = ancho * (maximo / alto);
-                    alto = maximo;
-                }
-            }
-
-            const canvas = document.createElement("canvas");
-            canvas.width = ancho;
-            canvas.height = alto;
-
-            const contexto = canvas.getContext("2d");
-            contexto.drawImage(imagen, 0, 0, ancho, alto);
-
-            canvas.toBlob(function(blob) {
-                resolve(blob);
-            }, "image/jpeg", calidad);
-        };
-
-        imagen.src = URL.createObjectURL(archivo);
-    });
-}
 
     reducirFoto(archivoFoto).then(function(fotoReducida) {
-    const lector = new FileReader();
+    const lector = new FileReader();    
     alert("VOY A LEER LA FOTO");
     
-lector.onload = function() {
-    
-alert("LA FOTO SE HA LEÍDO");
-alert("VOY A GUARDAR LA PRENDA");
-    
+    lector.onload = function() {
+
+    alert("LA FOTO SE HA LEÍDO");
+    alert("VOY A GUARDAR LA PRENDA");
+
     prendas.push({
     nombre: textoNombre,
     color: textoColor,
@@ -378,19 +382,15 @@ alert("VOY A GUARDAR LA PRENDA");
     posicionY: posicionY
 });
 
-    try {
+    try {   
     alert("ESPACIO: " + localStorage.length);
-    localStorage.setItem("prendas", JSON.stringify(prendas));
+    localStorage.setItem("prendas", JSON.stringify(prendas));  
     alert("PRENDA GUARDADA");
 } catch (error) {
     alert("ERROR AL GUARDAR: " + error.name);
 }
 
-    if (document.body.classList.contains("pantalla-anadir")) {
-    window.location.replace("prendas.html?categoria=" + textoCategoria);
-    return;
-}
-    
+
     if (document.body.classList.contains("pantalla-anadir")) {
     window.location.replace("prendas.html?categoria=" + textoCategoria);
     return;
@@ -409,6 +409,7 @@ alert("VOY A GUARDAR LA PRENDA");
 };
 
 lector.readAsDataURL(fotoReducida);
+});
 
 });
 
