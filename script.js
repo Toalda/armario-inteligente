@@ -212,9 +212,6 @@ const resultadosBusqueda = document.querySelector("#resultados-busqueda");
 const categorias = document.querySelector(".categorias");
 const botonAnadir = document.querySelector("#boton-anadir");
 
-console.log(busqueda);
-console.log(resultadosBusqueda);
-
 let prendas = JSON.parse(localStorage.getItem("prendas")) || [];
 let indiceEditando = null;
 
@@ -235,10 +232,6 @@ if (indiceEditar !== null && prendas[indiceEditar]) {
 
 function crearPrenda(textoNombre, textoColor, archivoFoto, indice, textoCategoria) {
 
-    console.log("ESTOY DENTRO DE CREAR PRENDA");
-
-    console.log(textoCategoria);
-
     const nuevaPrenda = document.createElement("div");
     nuevaPrenda.classList.add("prenda");
 
@@ -257,16 +250,12 @@ function crearPrenda(textoNombre, textoColor, archivoFoto, indice, textoCategori
     } else {
         imagen.src = URL.createObjectURL(archivoFoto);
     } 
-    console.log("Zoom:", prendas[indice]?.zoom);
-    console.log("X:", prendas[indice]?.posicionX);
-    console.log("Y:", prendas[indice]?.posicionY);
-
 
     if (prendaGuardada && prendaGuardada.zoom) {
     imagen.style.transform =
     `translate(${prendaGuardada.posicionX}px, ${prendaGuardada.posicionY}px) scale(${prendaGuardada.zoom})`;
     }
-    console.log("Transform aplicado:", imagen.style.transform);
+    
     zonaFoto.appendChild(imagen);
     nuevaPrenda.appendChild(zonaFoto);
 
@@ -323,8 +312,6 @@ contenedorBotones.appendChild(botonEliminar);
 if (boton) {
 
 boton.addEventListener("click", function() {
-
-    console.log("HE PULSADO AÑADIR");
 
     const textoNombre = nombre.value;
     const textoColor = color.value; 
