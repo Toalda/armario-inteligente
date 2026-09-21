@@ -202,10 +202,10 @@ button {
 }
 .prenda button {
     display: inline-block;
-    margin: 0px 0px;
+    margin: 20px 0px;
     padding: 6px 10px;
     border-radius: 8px;
-    font-size: 23px;
+    font-size: 30px;
 }
 .botones-prenda {
     margin-top: auto;
