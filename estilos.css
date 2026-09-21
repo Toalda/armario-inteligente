@@ -148,8 +148,8 @@ body {
 }
 .foto-prenda {
     margin: 20px auto 50px;
-    width: 350px;
-    height: 350px;
+    width: 320px;
+    height: 320px;
     background-color: rgb(243 243 235);
     border-radius: 10px;
     display: flex;
