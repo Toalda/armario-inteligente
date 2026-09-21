@@ -127,9 +127,9 @@ body {
 .categorias {
     display: grid;
     grid-template-columns: 140px 140px;
-    gap: 30px;
+    gap: 35px 25px;
     justify-content: center;
-    margin-top: 40px;
+    margin-top: 45px;
 }
 .categoria {
     background-color: #D4AF37;
