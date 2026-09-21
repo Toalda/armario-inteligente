@@ -127,7 +127,7 @@ body {
 .categorias {
     display: grid;
     grid-template-columns: 140px 140px;
-    gap: 35px 25px;
+    gap: 40px 25px;
     justify-content: center;
     margin-top: 45px;
 }
